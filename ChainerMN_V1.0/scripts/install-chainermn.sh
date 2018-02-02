@@ -104,7 +104,7 @@ install_intel_mpi
 setup_chainermn_gpu()
 { 
 
-		if is_ubuntu; then
+		if is_Ubuntu; then
 		sudo apt-get update
 		sudo apt-get install git
 		fi
@@ -130,7 +130,7 @@ setup_chainermn_gpu()
 		#NCCL package # for ubuntu : 2.1 # for centos 1.3.4
 		if [ ! -d /opt/nccl ]; then
 			cd /opt
-			if is_ubuntu; then				
+			if is_Ubuntu; then				
 				sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/libnccl2_2.1.2-1+cuda9.0_amd64.deb
 				sudo dpkg -i libnccl2_2.1.2-1+cuda9.0_amd64.deb
 				sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/libnccl-dev_2.1.2-1+cuda9.0_amd64.deb
@@ -166,7 +166,7 @@ setup_chainermn_gpu()
 			gzip -d ${PKG_Name}
 			sudo dpkg -i ${PKG_Name::-3}
 			fi			
-			if is_ubuntu; then
+			if is_Ubuntu; then
 			PKG_Name=libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb.gz
 			sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/${PKG_Name}
 			gzip -d ${PKG_Name}
@@ -189,7 +189,7 @@ setup_chainermn_gpu()
 setup_chainermn_gpu_infiniband()
 {
 
-		if is_ubuntu; then
+		if is_Ubuntu; then
 			sudo apt-get update
 			sudo apt-get install git
 		fi
@@ -255,7 +255,7 @@ setup_chainermn_gpu_infiniband()
 				sudo dpkg -i ${PKG_Name::-3}
 			fi	
 			
-			if is_ubuntu; then
+			if is_Ubuntu; then
 				PKG_Name=libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb.gz
 				sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/${PKG_Name}
 				gzip -d ${PKG_Name}
