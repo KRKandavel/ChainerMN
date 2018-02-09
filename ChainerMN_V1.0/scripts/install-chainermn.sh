@@ -9,7 +9,8 @@ is_ubuntu()
 
 is_centos()
 {
-	python -mplatform | grep -qi CentOS
+        cat /etc/centos-release | grep CentOS
+	#python -mplatform | grep -qi CentOS
 	return $?
 }
 
