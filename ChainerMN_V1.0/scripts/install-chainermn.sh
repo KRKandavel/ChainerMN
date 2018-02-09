@@ -155,24 +155,10 @@ setup_chainermn_gpu()
 		#cudnn 
 		if [ ! -f /usr/local/cuda/include/cudnn.h ]; then
 			cd /usr/local
-			if is_centos; then			
-			CUDNN_PKG_NAME=cudnn-8.0-linux-x64-v6.0.tgz.gz
-			sudo curl -L -O https://pfnresources.blob.core.windows.net/chainermn-v1-packages/${CUDNN_PKG_NAME}
-			gzip -d ${CUDNN_PKG_NAME}
-			sudo tar zxvf ${CUDNN_PKG_NAME::-3}
-			sudo rm -rf ${CUDNN_PKG_NAME::-3}
-			
-			PKG_Name=libcudnn7_7.0.5.15-1+cuda8.0_amd64.deb.gz
-			sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/${PKG_Name}
-			gzip -d ${PKG_Name}
-			sudo dpkg -i ${PKG_Name::-3}
-			fi			
-			if is_Ubuntu; then
-			PKG_Name=libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb.gz
-			sudo curl -L -O  https://pfnresources.blob.core.windows.net/chainermn-v1-packages/${PKG_Name}
-			gzip -d ${PKG_Name}
-			sudo dpkg -i ${PKG_Name::-3}
-			fi
+			sudo curl -L -O https://www.dropbox.com/s/241tka1skcgcjie/cudnn-9.0-linux-x64-v7.tgz
+			sudo tar zxvf cudnn-9.0-linux-x64-v7.tgz
+			sudo rm -rf cudnn-9.0-linux-x64-v7.tgz
+						
 		fi
 					
 		#install Chainer V3.1.0
