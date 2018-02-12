@@ -231,13 +231,13 @@ setup_chainermn_gpu_infiniband()
 			cd /usr/local
 			if is_centos; then
 			sudo curl -L -O https://pfnresources.blob.core.windows.net/chainermn-v1-packages/cudnn-8.0-linux-x64-v7.tgz.gz
-			tar -zxf cudnn-8.0-linux-x64-v7.tgz.gz
+			gzip -d cudnn-8.0-linux-x64-v7.tgz.gz
 			sudo tar zxvf cudnn-8.0-linux-x64-v7.tgz
 			sudo rm -rf cudnn-8.0-linux-x64-v7.tgz
 			fi
 			if is_Ubuntu; then
 			sudo curl -L -O https://pfnresources.blob.core.windows.net/chainermn-v1-packages/cudnn-9.0-linux-x64-v7.tgz.gz
-			tar -zxf cudnn-9.0-linux-x64-v7.tgz.gz
+			gzip -d cudnn-9.0-linux-x64-v7.tgz.gz
 			sudo tar zxvf cudnn-9.0-linux-x64-v7.tgz
 			sudo rm -rf cudnn-9.0-linux-x64-v7.tgz
 			fi
