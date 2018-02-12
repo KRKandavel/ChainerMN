@@ -229,9 +229,18 @@ setup_chainermn_gpu_infiniband()
 		#cudnn 7.0.4
 		if [ ! -f /usr/local/cuda/include/cudnn.h ]; then
 			cd /usr/local
-			sudo curl -L -O https://www.dropbox.com/s/241tka1skcgcjie/cudnn-9.0-linux-x64-v7.tgz
+			if is_centos; then
+			sudo curl -L -O https://pfnresources.blob.core.windows.net/chainermn-v1-packages/cudnn-8.0-linux-x64-v7.tgz.gz
+			tar -zxf cudnn-8.0-linux-x64-v7.tgz.gz
+			sudo tar zxvf cudnn-8.0-linux-x64-v7.tgz
+			sudo rm -rf cudnn-8.0-linux-x64-v7.tgz
+			fi
+			if is_Ubuntu; then
+			sudo curl -L -O https://pfnresources.blob.core.windows.net/chainermn-v1-packages/cudnn-9.0-linux-x64-v7.tgz.gz
+			tar -zxf cudnn-9.0-linux-x64-v7.tgz.gz
 			sudo tar zxvf cudnn-9.0-linux-x64-v7.tgz
 			sudo rm -rf cudnn-9.0-linux-x64-v7.tgz
+			fi
 			#Copy CUDNN files to required locaiton			
 			sudo cp cuda/include/cudnn.h /usr/local/cuda/include 
 			sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
